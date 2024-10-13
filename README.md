@@ -1,56 +1,77 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hi Cinta</title>
+    <title>Confession Page</title>
     <style>
         body {
-            text-align: center;
             font-family: Arial, sans-serif;
+            text-align: center;
             margin-top: 50px;
+            background-color: #f0f8ff;
         }
-        h1 {
-            font-size: 40px; /* Tulisan besar sikit */
+        #buttons {
+            margin-top: 20px;
         }
-        p {
-            font-size: 20px; /* Tulisan kecik sikit */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
         }
-        .hidden {
+        #noBtn {
+            position: absolute;
+        }
+        .blushing-stickers {
             display: none;
+            margin-top: 20px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        /* Style for the YouTube iframe */
+        #video {
+            display: none; /* Initially hide the video */
+            margin-top: 20px;
+            max-width: 560px; /* Adjust width as needed */
         }
     </style>
 </head>
 <body>
 
-    <h1>Hi Cinta</h1>
-    <p>Awak suka saya tak?</p>
-    <button id="yesButton">Ya</button>
-    <button id="noButton">Tidak</button>
+<h1>Hi cinta, awak suka saya tak?</h1>
 
-    <audio id="loveSong" class="hidden">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-        Your browser does not support the audio tag.
-    </audio>
+<div id="buttons">
+    <button id="yesBtn">Ya</button>
+    <button id="noBtn">Tidak</button>
+</div>
 
-    <img id="loveImage" src="https://images.app.goo.gl/TvpgX57idZuyWqAA7" alt="Gambar Cinta" class="hidden" />
+<!-- YouTube video embed -->
+<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/WECKJ1VzCVA?si=lM0EgtA3Xc0Z8SHS" frameborder="0" allowfullscreen></iframe>
 
-    <script>
-        const yesButton = document.getElementById('yesButton');
-        const noButton = document.getElementById('noButton');
-        const loveSong = document.getElementById('loveSong');
-        const loveImage = document.getElementById('loveImage');
+<div class="blushing-stickers" id="stickers">
+    <img src="https://example.com/blushing-sticker1.png" alt="Blushing Sticker 1">
+    <img src="https://example.com/blushing-sticker2.png" alt="Blushing Sticker 2">
+</div>
 
-        noButton.addEventListener('click', () => {
-            alert("Dia lari!");
-        });
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const video = document.getElementById("video");
+    const stickers = document.getElementById("stickers");
 
-        yesButton.addEventListener('click', () => {
-            loveSong.classList.remove('hidden');
-            loveSong.play();
-            loveImage.classList.remove('hidden');
-        });
-    </script>
+    noBtn.addEventListener('mouseover', function() {
+        noBtn.style.top = `${Math.random() * window.innerHeight}px`;
+        noBtn.style.left = `${Math.random() * window.innerWidth}px`;
+    });
+
+    yesBtn.addEventListener('click', function() {
+        video.style.display = "block"; // Show the YouTube video
+        video.src += "&autoplay=1"; // Autoplay the video
+        stickers.style.display = "block"; // Show blushing stickers
+    });
+</script>
 
 </body>
 </html>
