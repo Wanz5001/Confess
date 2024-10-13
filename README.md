@@ -47,8 +47,8 @@
     <button id="noBtn">Tidak</button>
 </div>
 
-<!-- YouTube video embed -->
-<iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/WECKJ1VzCVA?si=lM0EgtA3Xc0Z8SHS" frameborder="0" allowfullscreen></iframe>
+<!-- Audio file -->
+<audio id="song" src="content://media/external/downloads/18250"></audio>
 
 <div class="blushing-stickers" id="stickers">
     <img src="https://example.com/blushing-sticker1.png" alt="Blushing Sticker 1">
@@ -58,7 +58,7 @@
 <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
-    const video = document.getElementById("video");
+    const song = document.getElementById("song");
     const stickers = document.getElementById("stickers");
 
     noBtn.addEventListener('mouseover', function() {
@@ -67,8 +67,7 @@
     });
 
     yesBtn.addEventListener('click', function() {
-        video.style.display = "block"; // Show the YouTube video
-        video.src += "&autoplay=1"; // Autoplay the video
+        song.play(); // Play the audio file
         stickers.style.display = "block"; // Show blushing stickers
     });
 </script>
